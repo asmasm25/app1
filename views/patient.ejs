@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <%- include ("include/head") -%>
+
+    <body>
+        <div class="table-responsive-sm">
+          <div class="container-table100">
+            <div class="wrap-table100">
+              <div class="table100">
+                    <table >
+               <caption> Patients</caption>
+              <thead>
+                <tr class="table100-head">
+                  
+                    
+                    
+                    
+                  <th class="columnD">Patient</th>
+                  <th class="column">Name</th>
+                  <th class="column"> Gender</th>
+                  <th class="column">Birth Date</th>   
+                  <th class="column">Age</th>
+                  <th class="column">Date Of Addmission</th>
+                  <th class="column">Sickness</th>
+                  <th class="column">Prescriptions</th>
+                  <th class="column">Allergies</th>
+                  <th class="column">Special Requests</th>
+                  <th class="column">Emergency</th>
+ 
+
+                
+                </tr>
+              </thead>
+              <tbody>
+                  <% Patient.forEach(function(pat){ %>
+                  <tr>
+                    <td class="columnD" id="id_p"><%= pat.Id_patient %></td>
+                    <td class="column"><%= pat.Name %></td>
+                    <td class="column"><%= pat.Gender %></td>
+                    <td class="column"><%= pat.BirthDate %></td>
+                    <td class="column"><%= pat.Age %></td>
+                    <td class="column"><%= pat.DateOfAddmission %></td>
+                    <td class="column"><%= pat.Sickness %></td>
+                    <td class="column"><%= pat.Prescriptions %></td>
+                    <td class="column"><%= pat.Allergies %></td>
+                    <td class="column"><%= pat.SpecialReqs %></td>
+                    <td class="columnF"><a href='/edit'>
+                       <button id="myButton"  ><%= pat.Emergency %></button></a>
+                    </td>
+                   
+                  </tr>
+                  <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>
+        </div>
+        <%- include ("include/scripts") -%>
+        <%- include ("include/footer") -%>
+    </body>
+</html>
+
+
+  

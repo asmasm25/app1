@@ -1,0 +1,103 @@
+<!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.esm.min.js" integrity="sha384-pXJyILVSfKOB4xKYbM0dJr+oH4iVvo4s7mWbiTHe6LSxd38hl16DMj6AOJyy2Wcz" crossorigin="anonymous"></script>
+
+<script id="scr">  
+
+
+function change(){
+    const buttons = document.querySelectorAll("#myButton")
+    for (const button of buttons) {
+         button.addEventListener('click', function(event) {
+      if (button.innerHTML==="false" ){
+      button.innerHTML="true";
+      button.style.background="#ff0000"
+      var val1 = $(this).closest('tr').find('#id_p').text()
+      alert(val1);
+        update();
+     }
+      else {
+      button.innerHTML="false"
+      button.style.background="#dcdcdc"
+
+      }
+  })
+
+}
+ }
+  change();
+</script>
+<!--<script id="scr"> 
+    function update(){
+       
+        const buttons = document.querySelectorAll("#myButton")
+        for (const button of buttons) {
+            button.addEventListener('click', function(event) {
+            if (button.innerHTML==="false" ){
+                var neo4j = require('neo4j-driver');
+                var driver = neo4j.driver('bolt://localhost', neo4j.auth.basic('neo4j', '0000' ));
+                var session = driver.session();
+                session
+                    .run('MATCH (n:patient) where n.Id_patient = $id SET n.Emergency = true RETURN n', {id:"patient1"})
+                    .then(function (){
+                        console.log("ok");
+                        })       
+                    .catch(function(err){
+                        console.log(err);
+                    })
+            }
+            })
+    
+    }
+     }
+      update();
+    </script>
+
+
+<!-- <script id="scrd">   
+    function changebd(){
+        const buttons = document.querySelectorAll("#myButtond")
+        for (const button of buttons) {
+             button.addEventListener('click', function(event) {
+          if (button.innerHTML==="false" ){
+          button.innerHTML="true";
+          button.style.background="#dcdcdc"
+          var val1 = $(this).closest('tr').find('#id_p').text()
+          button.addEventListener("click", external);
+
+
+          
+     
+         }
+          else {
+          button.innerHTML="false"
+          button.style.background="#ff0000"
+          
+          }
+      })}
+      }
+      changebd();
+    </script> -->
+<!--
+<script >   
+
+ function update(){
+  const butt = document.querySelectorAll("#myButton")
+      for (const but of butt) {
+           but.addEventListener('click', function(event) {
+        if (but.innerHTML==="false"){
+        session
+        .run('MATCH (n:patient) where n.Id_patient = $id SET n.Emergency = true RETURN n', {id:"patient2"})
+        .then(function (){
+            console.log("ok");})         
+        .catch(function(err){
+            console.log(err);})
+        }})}}
+update();
+  
+  
+  
+  </script>
+-->
